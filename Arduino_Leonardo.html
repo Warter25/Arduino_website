@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="/js/go_top.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 40px;
+        background-color: #ffffff;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+      #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: grey; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+
+      #myBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="index.html">Home</a>
+      <a href="Модели.html">Модели</a>
+      <a href="Arduino_IDE">Arduino IDE</a>
+      <a href="Проекты.html">Проекты</a>
+    </div>
+    <div class="main">
+      <button onclick="topFunction()" id="myBtn" title="Go to top">
+        На верх
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction();
+        };
+
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            document.getElementById("myBtn").style.display = "block";
+          } else {
+            document.getElementById("myBtn").style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <h1 align="center">Arduino Leonardo</h1>
+      <table>
+        <tbody>
+          <tr height="auto">
+            <form></form>
+            <td>
+              <p align="left" style="width: 100%">
+                Arduino Leonardo - это устройство на базе микроконтроллера
+                ATmega32U4 (datasheet). В его состав входит все необходимое для
+                работы с данным микроконтроллером: 20 цифровых входов/выходов (7
+                из которых могут работать в качестве ШИМ-выходов, 12 - в
+                качестве аналоговых входов), кварцевый резонатор на 16 МГц,
+                разъем микро-USB, разъем питания, разъем для внутрисхемного
+                программирования ICSP (In-Circuit Serial Programming) и кнопка
+                сброса. Для начала работы с Leonardo достаточно просто подать
+                питание от AC/DC-адаптера или батареи, либо подключить его к
+                компьютеру посредством USB-кабеля. Отличие Leonardo от всех
+                предыдущих плат заключается в том, что его USB-контроллер
+                встроен непосредственно в микроконтроллер ATmega32U4, что
+                исключает необходимость в дополнительном процессоре. Благодаря
+                этому при подсоединении к компьютеру Leonardo может определяться
+                не только как виртуальный (CDC) COM-порт, но и как обычная мышь
+                или клавиатура. Кроме того, такая архитектура оказывает влияние
+                и на поведение платы
+              </p>
+            </td>
+            <td text-align="center">
+              <img
+                src="ArduinoLeonardo.jpg"
+                alt="arduino_leonardo"
+                style="width: 450px"
+                align="center"
+              />
+              <img
+                src="ArduinoLeonardoBack.jpg"
+                alt="arduino_leonardo_back"
+                style="width: 450px"
+                align="center"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Характеристики</h3>
+      <table border="0">
+        <tr>
+          <td style="width: 650px">Микроконтроллер</td>
+          <td>ATmega32u4</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Рабочее напряжение</td>
+          <td>5В</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Напряжение питания (рекомендуемое)</td>
+          <td>7-12В</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Напряжение питания (предельное)</td>
+          <td>6-20В</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Цифровые входы/выходы</td>
+          <td>20</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Каналы ШИМ</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Аналоговые входы</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Максимальный ток одного вывода</td>
+          <td>40 мА</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Максимальный выходной ток вывода 3.3V</td>
+          <td>50 мА</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Flash-память</td>
+          <td>32 КБ (ATmega32u4) из которых 4 КБ используются загрузчиком</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">SRAM</td>
+          <td>2.5 КБ (ATmega32u4)</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">EEPROM</td>
+          <td>1 КБ (ATmega32u4)</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Тактовая частота</td>
+          <td>16 МГц</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

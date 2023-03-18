@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="/js/go_top.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 40px;
+        background-color: #ffffff;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+      #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: grey; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+
+      #myBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="index.html">Home</a>
+      <a href="Модели.html">Модели</a>
+      <a href="Arduino_IDE.html">Arduino IDE</a>
+      <a href="Проекты.html">Проекты</a>
+    </div>
+    <div class="main">
+      <button onclick="topFunction()" id="myBtn" title="Go to top">
+        На верх
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction();
+        };
+
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            document.getElementById("myBtn").style.display = "block";
+          } else {
+            document.getElementById("myBtn").style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <h1 align="center">Проекты</h1>
+      <a href="https://cxem.net/arduino/arduino34.php" target="blank"
+        >Часы на Arduino</a
+      >
+      <table>
+        <tbody>
+          <tr height="auto">
+            <form></form>
+            <td>
+              <p align="left" style="width: 100%">
+                Эти простые часы на Arduino прекрасно справляются с поставленной
+                на них задачей индикации времени. Они поддерживают относительно
+                точное время без использования RTC микросхем, для индикации
+                которого используется стандартный дисплей, применяемый во многих
+                готовых часах. Также возможно регулировать яркость цифр. Вам
+                понадобятся: Arduino, Часовой индикатор LTC-617, Кнопка Резистор
+                10k, Провода для перемычек. Все эти компоненты кроме Arduino
+                стоят дешево и могут быть извлечены из ненужных устройств.
+                Arduino стоит от $15 на eBay, но его можно использовать для
+                множества других проектов. Для простоты сборки я использовал
+                макетную плату, но это не обязательно.
+              </p>
+            </td>
+            <td text-align="center">
+              <img
+                src="arduino34-1.jpg"
+                alt="arduino_watch"
+                style="width: 500px"
+                align="center"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="https://cxem.net/arduino/arduino177.php" target="blank"
+        >Аудиоплеер</a
+      >
+      <table>
+        <tbody>
+          <tr height="auto">
+            <form></form>
+            <td>
+              <p align="left" style="width: 100%">
+                Соберем аудиоплеер. Что нам для этого понадобится? Во-первых,
+                нам нужен "мозг", который будет все контролировать. В качестве
+                такого мозга возьмем Arduino. Во-вторых, нам нужно будет
+                откуда-то считывать данные. В качестве такого носителя данных
+                возьмем компактные мини SD-карты. И, конечно же, динамики для
+                воспроизведения звука. Еще запрограммируем пульт для
+                дистанционного управления.
+              </p>
+            </td>
+            <td text-align="center">
+              <img
+                src="arduino177-6.jpg"
+                alt="arduino_audio"
+                style="width: 500px"
+                align="center"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="https://cxem.net/arduino/arduino19.php" target="blank"
+        >Тепловизор</a
+      >
+      <table>
+        <tbody>
+          <tr height="auto">
+            <form></form>
+            <td>
+              <p align="left" style="width: 80%">
+                Тепловизор - прибор для измерения распределения температуры
+                поверхностей, бесконтактным, визуальным способом. Как правило,
+                карта распределения температуры отображается на встроенном в
+                тепловизор цветном дисплее (или последующая передача данных в
+                компьютер) в виде цветного изображения, где красный цвет
+                обозначает наиболее высокотемпературные участки, а черный или
+                синий - низкотемпературные участки. Такие приборы стоят очень
+                дорого (несколько тысяч долларов) и позволяют определять
+                температуры динамических (движущихся объектов) в режиме
+                реального времени.
+              </p>
+            </td>
+            <td text-align="center">
+              <img
+                src="arduino19-1.jpg"
+                alt="arduino_thermal_imager"
+                style="width: 200px"
+                align="center"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="https://cxem.net/arduino/arduino14.php" target="blank"
+        >Электронный барометр</a
+      >
+      <table>
+        <tbody>
+          <tr height="auto">
+            <form></form>
+            <td>
+              <p align="left" style="width: 80%">
+                В данном проекте мы рассмотрим подключения датчика давления по
+                интерфейсу I2C к контроллеру Arduino и снятие показаний. Проще
+                говоря мы создадим электронный барометр своими руками. В
+                качестве датчика давления мы будем использовать BMP085 от фирмы
+                Bosch. Описание и документацию на датчик можно найти здесь.
+                Даташит: BMP085. BMP085 представляет из себя высокоточный
+                цифровой датчик атмосферного давления с ультранизким
+                энергопотреблением. Также, датчик позволяет измерять
+                температуру. Интерфейс подключения: I2C. Применяется датчик в
+                GPS-навигации, метеостанциях, приборах определения скорости
+                подьема/спуска, в измерителях мощности воздушного потока и т.п.
+              </p>
+            </td>
+            <td text-align="center">
+              <img
+                src="arduino14-2.jpg"
+                alt="arduino_barometr"
+                style="width: 400px"
+                align="center"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

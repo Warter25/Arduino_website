@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="/js/go_top.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 40px;
+        background-color: #ffffff;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+      #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: grey; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+
+      #myBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="index.html">Home</a>
+      <a href="Модели.html">Модели</a>
+      <a href="Arduino_IDE.html">Arduino IDE</a>
+      <a href="Проекты.html">Проекты</a>
+    </div>
+    <div class="main">
+      <button onclick="topFunction()" id="myBtn" title="Go to top">
+        На верх
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction();
+        };
+
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            document.getElementById("myBtn").style.display = "block";
+          } else {
+            document.getElementById("myBtn").style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <h1 align="center">Модели</h1>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+          <div class="col">
+            <div class="card">
+              <img
+                src="arduino_micro.jpg"
+                class="card-img-top"
+                alt="arduino_micro"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Micro</h5>
+                <p class="card-text">
+                  Arduino Micro - это устройство на основе микроконтроллера
+                  ATmega32u4.
+                </p>
+                <a href="Arduino_Micro.html" class="btn btn-primary"
+                  >Arduino Micro</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="Mini.jpg" class="card-img-top" alt="arduino_micro" />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Mini</h5>
+                <p class="card-text">
+                  Arduino Mini - это устройство на основе микроконтроллера
+                  ATmega328 (datasheet).
+                </p>
+                <a href="Arduino_Mini.html" class="btn btn-primary"
+                  >Arduino Mini</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="ArduinoNano.jpg"
+                class="card-img-top"
+                alt="arduino_nano"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Nano</h5>
+                <p class="card-text">
+                  Arduino Nano - это устройство на базе микроконтроллера
+                  ATmega328.
+                </p>
+                <a href="Arduino_Nano.html" class="btn btn-primary"
+                  >Arduino Nano</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="ArduinoUno.jpg"
+                class="card-img-top"
+                alt="arduino_uno"
+                style="width: 300px"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Uno</h5>
+                <p class="card-text">
+                  Arduino Uno - это устройство на основе микроконтроллера
+                  ATmega328 (datasheet).
+                </p>
+                <a href="Arduino_Uno.html" class="btn btn-primary"
+                  >Arduino Uno</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="ArduinoEthernet.jpg"
+                class="card-img-top"
+                alt="arduino_ethernet"
+                style="width: 300px"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Ethernet</h5>
+                <p class="card-text">
+                  Arduino Ethernet - это устройство на основе микроконтроллера
+                  ATmega328 (datasheet).
+                </p>
+                <a href="Arduino_Ethernet.html" class="btn btn-primary"
+                  >Arduino Ethernet</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="ArduinoYun.jpg"
+                class="card-img-top"
+                alt="arduino_yun"
+                style="width: 300px"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino YUN</h5>
+                <p class="card-text">
+                  Arduino YUN - это первый представитель новейшей серии плат
+                  Ардуино со встроенным WiFi.
+                </p>
+                <a href="Arduino_YUN.html" class="btn btn-primary"
+                  >Arduino YUN</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="ArduinoLeonardo.jpg"
+                class="card-img-top"
+                alt="arduino_leonardo"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Leonardo</h5>
+                <p class="card-text">
+                  Arduino Leonardo - это устройство на базе микроконтроллера
+                  ATmega32U4 (datasheet).
+                </p>
+                <a href="Arduino_Leonardo.html" class="btn btn-primary"
+                  >Arduino Leonardo</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="ArduinoDue.jpg"
+                class="card-img-top"
+                alt="arduino_due"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Due</h5>
+                <p class="card-text">
+                  Arduino Due - это устройство на основе микропроцессора Atmel
+                  SAM3X8E ARM Cortex-M3 (datasheet).
+                </p>
+                <a href="Arduino_Due.html" class="btn btn-primary"
+                  >Arduino Due</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img
+                src="ArduinoMega2560.jpg"
+                class="card-img-top"
+                alt="arduino_mega"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Arduino Mega</h5>
+                <p class="card-text">
+                  Arduino Mega 2560 - это устройство на основе микроконтроллера
+                  ATmega2560 (datasheet).
+                </p>
+                <a href="Arduino_Mega.html" class="btn btn-primary"
+                  >Arduino Mega</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

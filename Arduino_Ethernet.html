@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="/js/go_top.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 40px;
+        background-color: #ffffff;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      .main {
+        margin-left: 160px; /* Same as the width of the sidenav */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .sidenav {
+          padding-top: 15px;
+        }
+        .sidenav a {
+          font-size: 18px;
+        }
+      }
+      #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: grey; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+
+      #myBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="index.html">Home</a>
+      <a href="Модели.html">Модели</a>
+      <a href="Arduino_IDE">Arduino IDE</a>
+      <a href="Проекты.html">Проекты</a>
+    </div>
+    <div class="main">
+      <button onclick="topFunction()" id="myBtn" title="Go to top">
+        На верх
+      </button>
+      <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+          scrollFunction();
+        };
+
+        function scrollFunction() {
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            document.getElementById("myBtn").style.display = "block";
+          } else {
+            document.getElementById("myBtn").style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      </script>
+      <h1 align="center">Arduino Ethernet</h1>
+      <table>
+        <tbody>
+          <tr height="auto">
+            <form></form>
+            <td>
+              <p align="left" style="width: 100%">
+                Arduino Ethernet - это устройство на основе микроконтроллера
+                ATmega328 (datasheet). В его состав входит 14 цифровых выводов,
+                6 аналоговых входов, кварцевый резонатор на 16 МГц, разъем RJ45,
+                разъем питания, разъем для внутрисхемного программирования ICSP,
+                а также кнопка сброса. Примечание: выводы 10, 11, 12 и 13
+                задействованы для связи процессора с Ethernet-контроллером и не
+                должны использоваться для других целей. Поэтому, при
+                использовании Ethernet-контроллера количество доступных выводов
+                уменьшается до 9 с 4 ШИМ-выходами. В качестве дополнительной
+                опции с платой может быть приобретен специальный модуль,
+                реализующий технологию Power over Ethernet (PoE). Данная
+                технология позволяет потреблять электрическую энергию через
+                витую пару в сети Ethernet. Arduino Ethernet отличается от
+                других плат Ардуино тем, что у него нет встроенного USB-UART
+                преобразователя, но есть Ethernet-контроллер Wiznet, который
+                также используется в Ethernet-платах расширения. Встроенный
+                MicroSD-кардридер позволяет хранить файлы, к которым можно
+                организовать сетевой доступ. Управление кардридером
+                осуществляется с помощью библиотеки SD. Вывод 10 используется
+                для взаимодействия с чипом Wiznet, линия SS для выбора SD-карты
+                соединена с выводом 4. 6-контактный разъем для программирования
+                совместим не только с USB-Serial адаптером от Ардуино, но и с
+                USB-кабелями от FTDI и аналогичными USB-UART переходниками от
+                Sparkfun и Adafruit. Разъем спроектирован таким образом, чтобы
+                обеспечивать возможность автоматического сброса микроконтроллера
+                во время прошивки - это освобождает пользователя от
+                необходимости вручную нажимать кнопку сброса. При подключении
+                USB-Serial адаптера, питание Arduino Ethernet осуществляется от
+                адаптера. 3 версия Arduino Ethernet (Rev. 3) удовлетворяет
+                требованиям стандартной распиновки 1.0: добавлены выводы SDA и
+                SCL (возле вывода AREF), а также два новых вывода, расположенных
+                возле вывода RESET. Наличие этих выводов обеспечивает
+                совместимость плат расширения, содержащих I2C-устройства, со
+                всеми моделями Ардуино; вывод IOREF - позволяет платам
+                расширения подстраиваться под рабочее напряжение Ардуино. Данный
+                вывод предусмотрен для совместимости плат расширения как с
+                5В-Ардуино на базе микроконтроллеров AVR, так и с 3.3В-платами
+                Arduino Due. Второй вывод возле IOREF ни к чему не подсоединен и
+                зарезервирован для будущих целей.
+              </p>
+            </td>
+            <td text-align="center">
+              <img
+                src="ArduinoEthernet.jpg"
+                alt="arduino_ethernet"
+                style="width: 450px"
+                align="center"
+              />
+              <img
+                src="ArduinoEthernetBack.jpg"
+                alt="arduino_ethernet_back"
+                style="width: 450px"
+                align="center"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Характеристики</h3>
+      <table border="0">
+        <tr>
+          <td style="width: 650px">Микроконтроллер</td>
+          <td>ATmega328</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Рабочее напряжение</td>
+          <td>5В</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Напряжение питания (рекомендуемое)</td>
+          <td>7-12В</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Напряжение питания (предельное)</td>
+          <td>6-20В</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Напряжение питание PoE (предельное)</td>
+          <td>36-57В</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Цифровые выводы</td>
+          <td>14 (из них 4 ШИМ-выхода)</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Зарезервированные выводы Ардуино</td>
+          <td>
+            с 10 по 13 - используются SPI вывод 4 используется при работе с
+            SD-картой вывод 2 - источник прерывания от микросхемы W5100 (при
+            мостовом включении)
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Аналоговые входы</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Максимальный ток одного вывода</td>
+          <td>40 мА</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Максимальный выходной ток вывода 3.3V</td>
+          <td>50 мА</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Flash-память</td>
+          <td>32 КБ (ATmega328) из которых 0.5 КБ заняты загрузчиком</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">SRAM</td>
+          <td>2 КБ (ATmega328)</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">EEPROM</td>
+          <td>1 КБ (ATmega328)</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">Тактовая частота</td>
+          <td>16 МГц</td>
+        </tr>
+        <tr>
+          <td style="width: 650px">
+            Встроенный Ethernet-контроллер W5100 TCP/IP
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 650px">
+            Сетевой разъем, поддерживающий технологию Power over Ethernet
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 650px">
+            Карта Micro-SD c преобразователями уровней
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
